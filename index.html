@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Londoola - Equipment Maintenance Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body style="display: none;">
+    <div id="app">
+        <aside id="sidebar">
+            <h2>Londoola</h2>
+            <div id="user-info">
+                <span id="username">Guest</span>
+                <button id="logout-btn">Logout</button>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" data-section="dashboard" class="active">Dashboard</a></li>
+                    <li><a href="#" data-section="equipment">Equipment</a></li>
+                    <li><a href="#" data-section="catalog">Catalog</a></li>
+                    <li><a href="#" data-section="reports">Reports</a></li>
+                    <li><a href="#" data-section="notifications">Notifications</a></li>
+                    <li><a href="#" data-section="settings">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main id="main-content">
+            <section id="dashboard" class="section active">
+                <h1>Dashboard</h1>
+                <div class="cards">
+                    <div class="card">
+                        <h3>Total Equipment</h3>
+                        <p id="total-equipment">0</p>
+                    </div>
+                    <div class="card">
+                        <h3>Upcoming Maintenance</h3>
+                        <p id="upcoming-maintenance">0</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="equipment" class="section">
+                <h1>Equipment</h1>
+                <button id="add-equipment-btn">Add New Equipment</button>
+
+                <div id="add-equipment-form" style="display: none;">
+                    <h2>Add Equipment</h2>
+                    <form id="equipment-form">
+                        <input type="text" id="equipment-name" placeholder="Equipment Name" required><br>
+                        <input type="text" id="model-number" placeholder="Model Number"><br>
+                        <input type="text" id="serial-number" placeholder="Serial Number"><br>
+                        <input type="date" id="last-serviced" placeholder="Last Serviced"><br>
+                        <input type="date" id="next-service" placeholder="Next Service"><br>
+                        <input type="text" id="facility" placeholder="Facility"><br>
+                        <input type="text" id="facility-location" placeholder="Facility Location"><br>
+                        <input type="text" id="facility-contact" placeholder="Facility Contact"><br>
+                        <button type="submit">Save Equipment</button>
+                        <button type="button" id="cancel-add-equipment">Cancel</button>
+                    </form>
+                </div>
+
+                <div id="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Equipment ID</th>
+                                <th>Name</th>
+                                <th>Model</th>
+                                <th>Serial Number</th>
+                                <th>Last Serviced</th>
+                                <th>Next Service</th>
+                                <th>Facility</th>
+                                <th>Facility Location</th>
+                                <th>Facility Contact</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="equipment-table">
+                            <tr><td colspan="10">Loading data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="catalog" class="section">
+                <h1>Catalog</h1>
+                <div id="catalog-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Model</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                            </tr>
+                        </thead>
+                        <tbody id="catalog-table">
+                            <tr><td colspan="4">Loading catalog data...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section id="reports" class="section">
+                <h1>Reports</h1>
+
+                <div class="report-options">
+                    <label for="report-type">Select Report:</label>
+                    <select id="report-type">
+                        <option value="all_equipment">All Equipment</option>
+                        <option value="upcoming_maintenance">Upcoming Maintenance</option>
+                    </select>
+                </div>
+
+                <button id="export-excel">Export to Excel</button>
+                <div id="report-message" class="message"></div>
+            </section>
+
+            <section id="notifications" class="section">
+                <h1>Notifications</h1>
+                <ul id="notification-list"></ul>
+            </section>
+
+            <section id="settings" class="section">
+                <h1>Settings</h1>
+                <p>Configure application settings here.</p>
+            </section>
+        </main>
+    </div>
+    <div id="message-container"></div>
+    <script src="script.js"></script>
+</body>
+</html>

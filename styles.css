@@ -1,0 +1,314 @@
+/* General Styles */
+:root {
+    --primary-color: #673ab7;
+    --primary-color-darker: #512da8;
+    --secondary-color: #f5f5f5;
+    --text-color: #333;
+    --accent-color: #ff9800;
+    --border-color: #ddd;
+    --box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Layout */
+#app {
+    display: flex;
+    flex-grow: 1;
+}
+
+/* Sidebar Navigation */
+#sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+#user-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+#user-info span {
+    font-weight: bold;
+}
+
+#logout-btn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#logout-btn:hover,
+#logout-btn:focus {
+    background-color: #d32f2f;
+    outline: none;
+}
+
+#sidebar h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+#sidebar nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+#sidebar nav li {
+    margin: 10px 0;
+}
+
+#sidebar nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+#sidebar nav a.active,
+#sidebar nav a:hover,
+#sidebar nav a:focus {
+    background-color: var(--primary-color-darker);
+    outline: none;
+}
+
+/* Main Content */
+#main-content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+}
+
+/* Cards */
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    flex: 1 1 300px;
+}
+
+.card h3 {
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    text-align: center;
+}
+
+.card p {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Table Styles */
+#table-container,
+#catalog-table-container {
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+}
+
+table th,
+table td {
+    border: 1px solid var(--border-color);
+    padding: 12px;
+    text-align: left;
+}
+
+table th {
+    background-color: var(--primary-color);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Delete Button */
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.delete-btn:hover,
+.delete-btn:focus {
+    background-color: #bd2130;
+    outline: none;
+}
+
+/* Notifications */
+#notification-list {
+    list-style: none;
+    padding: 0;
+}
+
+#notification-list li {
+    background: white;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: var(--box-shadow);
+}
+
+/* Messages */
+.message {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.message.success {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.message.error {
+    background-color: #f44336;
+    color: white;
+}
+
+.message.info {
+    background-color: #2196F3;
+    color: white;
+}
+
+/* Add Equipment Form */
+#add-equipment-form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: var(--box-shadow);
+    margin-bottom: 20px;
+}
+
+#add-equipment-form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#add-equipment-form input,
+#add-equipment-form select {
+    width: calc(100% - 12px);
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+}
+
+#add-equipment-form button[type="submit"],
+#add-equipment-form #cancel-add-equipment {
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s;
+}
+
+#add-equipment-form button[type="submit"]:hover,
+#add-equipment-form #cancel-add-equipment:hover {
+    background-color: var(--primary-color-darker);
+}
+
+/* Catalog Table Image */
+#catalog-table img {
+    max-width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    #sidebar nav ul {
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    #sidebar nav li {
+        margin: 5px;
+        flex: 1 1 auto;
+        text-align: center;
+    }
+
+    #sidebar nav a {
+        padding: 5px;
+        font-size: 0.85em;
+    }
+
+    .cards {
+        flex-direction: column;
+    }
+
+    table {
+        font-size: 0.8em;
+    }
+    #user
